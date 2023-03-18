@@ -4,35 +4,30 @@ import '../styles/App.css'
 class App extends Component {
   constructor(props) {
     super(props)
-
-    // Initialize state with a boolean flag to indicate whether the button has been clicked or not
     this.state = {
-      buttonClicked: false,
+      isClicked: false,
     }
-
-    // Bind the handleClick function to the current instance of the component
     this.handleClick = this.handleClick.bind(this)
   }
 
-  // Event handler function for the button click event
   handleClick() {
-    // Set the buttonClicked flag to true, which will trigger a re-render of the component
-    this.setState({ buttonClicked: true })
+    this.setState({ isClicked: true })
   }
 
   render() {
     return (
       <div id="main">
-        <button id="click" onClick={this.handleClick}>
-          Click me
-        </button>
-        {/* Render the paragraph tag only if the button has been clicked */}
-        {this.state.buttonClicked && (
+        {/* Add conditional rendering based on state */}
+        {this.state.isClicked && (
           <p id="para">
             Hello, I've learnt to use the full-stack evaluation tool. This makes
             me so happy
           </p>
         )}
+        {/* Add button with onClick event to update state */}
+        <button id="click" onClick={this.handleClick}>
+          Click me
+        </button>
       </div>
     )
   }
